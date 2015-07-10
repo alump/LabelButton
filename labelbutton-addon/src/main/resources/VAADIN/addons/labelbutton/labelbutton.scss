@@ -1,0 +1,40 @@
+@mixin label-button($clickable_color: blue) {
+
+  &.lb-clickable {
+    color: $clickable_color;
+
+    &.v-disabled {
+      opacity: 0.5;
+    }
+  }
+
+}
+
+@mixin labelbutton {
+  .labelbutton {
+    @include label-button();
+
+    &.lb-underline {
+      text-decoration: underline;
+    }
+
+    &.lb-clickable {
+
+      &.lb-pencil {
+        &:after {
+          content: "\f040";
+          font-family: "FontAwesome";
+          padding-left: 0.3em;
+        }
+      }
+
+      &.lb-pointer {
+        cursor: pointer;
+      }
+
+      &.lb-hover-underline:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
