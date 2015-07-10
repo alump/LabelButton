@@ -14,22 +14,22 @@
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
     </properties>
 
-	<organization>
-		<name>Sami Viitanen</name>
-		<url>https://github.com/alump/LabelButton/</url>
-	</organization>
-    
-	<scm>
-		<url>git://github.com/alump/LabelButton.git</url>
-		<connection>scm:git:git://github.com/alump/LabelButton.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:/alump/LabelButton.git</developerConnection>
-		<tag>LabelButton add-on for Vaadin</tag>
-	</scm>
+    <organization>
+        <name>Sami Viitanen</name>
+        <url>https://github.com/alump/LabelButton/</url>
+    </organization>
 
-	<issueManagement>
-		<system>GitHub</system>
-		<url>https://github.com/alump/LabelButton/issues</url>
-	</issueManagement>
+    <scm>
+        <url>git://github.com/alump/LabelButton.git</url>
+        <connection>scm:git:git://github.com/alump/LabelButton.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:/alump/LabelButton.git</developerConnection>
+        <tag>LabelButton add-on for Vaadin</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/alump/LabelButton/issues</url>
+    </issueManagement>
 
     <licenses>
         <license>
@@ -237,5 +237,47 @@
         </pluginManagement>
 
     </build>
+
+    <profiles>
+        <profile>
+            <id>faster</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-maven-plugin</artifactId>
+                        <version>${vaadin.plugin.version}</version>
+                        <configuration>
+                            <extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
+                            <webappDirectory>${basedir}/src/main/webapp/VAADIN/widgetsets</webappDirectory>
+                            <hostedWebapp>${basedir}/src/main/webapp/VAADIN/widgetsets</hostedWebapp>
+                            <noServer>true</noServer>
+                            <persistentunitcachedir>${basedir}/target/tmp/gwt-unitCache</persistentunitcachedir>
+                            <compileReport>false</compileReport>
+                            <strict>true</strict>
+                            <style>PRETTY</style>
+                            <draftCompile>true</draftCompile>
+                            <runTarget>http://localhost:8080/</runTarget>
+                        </configuration>
+                        <executions>
+                            <!-- You are free to mark this as permanently ignored in Eclipse -->
+                            <execution>
+                                <configuration>
+                                    <!-- if you don't specify any modules, the plugin will find them -->
+                                </configuration>
+                                <goals>
+                                    <goal>resources</goal>
+                                    <goal>update-widgetset</goal>
+                                    <goal>update-theme</goal>
+                                    <goal>compile-theme</goal>
+                                    <goal>compile</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>

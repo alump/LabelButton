@@ -15,6 +15,10 @@ from Marko Radinovic (available in Vaadin Directory).
 
 Try the add-on demo at http://app.siika.fi/LabelButtonDemo
 
+## Build status
+
+[![Build Status](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/)
+
 ## Download release
 
 Official releases of this add-on are available at Vaadin Directory. For Maven instructions, download and reviews, go to http://vaadin.com/addon/labelbutton
@@ -23,7 +27,7 @@ Official releases of this add-on are available at Vaadin Directory. For Maven in
 
 git clone https://github.com/alump/LabelButton.git
 mvn clean install
-cd demo
+cd labelbutton-demo
 mvn jetty:run
 
 To see the demo, navigate to http://localhost:8080/

@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.label.ContentMode;
@@ -122,6 +123,7 @@ public class DemoUI extends UI
             event.getLabel().setValue(textField.getValue());
             window.close();
         });
+        okButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
         layout.addComponent(okButton);
 
         getUI().addWindow(window);

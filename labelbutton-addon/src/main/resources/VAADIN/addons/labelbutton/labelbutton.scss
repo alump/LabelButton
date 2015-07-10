@@ -28,11 +28,11 @@
         }
       }
 
-      &.lb-pointer {
+      &.lb-pointer:not(.v-disabled) {
         cursor: pointer;
       }
 
-      &.lb-hover-underline:hover {
+      &.lb-hover-underline:hover:not(.v-disabled) {
         text-decoration: underline;
       }
     }
