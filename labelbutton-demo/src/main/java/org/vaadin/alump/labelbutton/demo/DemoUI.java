@@ -6,6 +6,7 @@ import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.event.ShortcutAction;
+import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.label.ContentMode;
@@ -58,13 +59,16 @@ public class DemoUI extends UI
         leftColumn.addComponent(label3);
         labelButtons.add(label3);
 
-        LabelButton label4 = new LabelButton("Example 4 (toggles HTML/text modes)", "<b>Bold</b> and <i>Italic</i>", ContentMode.HTML, event -> {
-           if(event.getLabel().getContentMode() == ContentMode.HTML) {
-               event.getLabel().setContentMode(ContentMode.TEXT);
-           } else {
-               event.getLabel().setContentMode(ContentMode.HTML);
-           }
-        });
+        LabelButton label4 = new LabelButton("Example 4 (toggles HTML/text modes)", "<b>Bold</b> and <i>Italic</i>",
+            ContentMode.HTML,
+            event -> {
+               if(event.getLabel().getContentMode() == ContentMode.HTML) {
+                   event.getLabel().setContentMode(ContentMode.TEXT);
+               } else {
+                   event.getLabel().setContentMode(ContentMode.HTML);
+               }
+            }
+        );
         leftColumn.addComponent(label4);
         labelButtons.add(label4);
 
@@ -78,6 +82,10 @@ public class DemoUI extends UI
         CheckBox disableCBox = new CheckBox("Disable labels");
         disableCBox.addValueChangeListener(event -> setDisabled((Boolean) event.getProperty().getValue()));
         rightColumn.addComponent(disableCBox);
+
+        Link githubLink = new Link("Project's GitHub page (source code, issue tracking, ...)",
+                new ExternalResource("https://github.com/alump/LabelButton"));
+        rightColumn.addComponent(githubLink);
 
     }
 
@@ -114,17 +122,21 @@ public class DemoUI extends UI
         final Window window = createWindow(event, "Modify label value");
         VerticalLayout layout = createWindowLayout(window);
 
+        Label info = new Label("Note: Normally you would use this in case of more complex edit functionality.");
+        layout.addComponent(info);
+
         final TextField textField = new TextField("Label content");
         textField.setWidth(100, Unit.PERCENTAGE);
         textField.setValue(event.getLabel().getValue());
         layout.addComponent(textField);
 
-        Button okButton = new Button("Modify", e -> {
+        Button okButton = new Button("Apply", e -> {
             event.getLabel().setValue(textField.getValue());
             window.close();
         });
         okButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
         layout.addComponent(okButton);
+        layout.setComponentAlignment(okButton, Alignment.BOTTOM_RIGHT);
 
         getUI().addWindow(window);
         textField.focus();

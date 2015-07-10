@@ -2,17 +2,15 @@
 
   &.lb-clickable {
     color: $clickable_color;
-
-    &.v-disabled {
-      opacity: 0.5;
-    }
   }
 
 }
 
 @mixin labelbutton {
   .labelbutton {
-    @include label-button();
+    $labelbutton-clickable-color: blue !default;
+
+    @include label-button($labelbutton-clickable-color);
 
     &.lb-underline {
       text-decoration: underline;
@@ -20,11 +18,16 @@
 
     &.lb-clickable {
 
+      &.v-disabled {
+        opacity: 0.5;
+      }
+
       &.lb-pencil {
         &:after {
           content: "\f040";
           font-family: "FontAwesome";
           padding-left: 0.3em;
+          font-size: 80%;
         }
       }
 

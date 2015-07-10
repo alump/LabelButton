@@ -4,3 +4,4 @@ target/
 labelbutton-demo/src/main/webapp/VAADIN/widgetsets
 *.scss.cache
 *.css
+.DS_Store
