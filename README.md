@@ -19,9 +19,47 @@ Try the add-on demo at http://app.siika.fi/LabelButtonDemo
 
 [![Build Status](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/)
 
+## Usage Example
+```java
+LabelButton label = new LabelButton("Caption", "Show notification", event -> Notification.show("Clicked!"));
+
+// Add-on provides some nice styling out-of-box. There add link style underlining and pointer cursor
+label.addStyleName(LabelButtonStyles.HOVER_UNDERLINE_WHEN_CLICKABLE);
+label.addStyleName(LabelButtonStyles.POINTER_WHEN_CLICKABLE);
+
+parentLayout.add(label);
+
+// .. you can easily jump between normal label and clickable state with
+label.setClickable(false); // behaves like normal label
+// .. and
+label.setClickable(true); // enables all click features and styling
+```
+
+## Screenshot
+
+![LabelButton screenhot 1](screenshot.png)
+
 ## Download release
 
 Official releases of this add-on are available at Vaadin Directory. For Maven instructions, download and reviews, go to http://vaadin.com/addon/labelbutton
+
+## Release notes
+
+### Version 0.1.3 (TODO)
+- TODO
+
+### Version 0.1.2 (2015-07-13)
+- 0.1.1 did not resolve the OSGi issue correctly.
+
+### Version 0.1.1 (2015-07-13)
+- Mandatory mistake in OSGi bundle fixed
+
+### Version 0.1.0 (2015-07-10)
+- Initial release
+- Addon OSGi bundled
+- Pencil, underline and pointer optional style names included
+- Click event includes mouse details
+- LabelButton can toggle between clickable and unclickable states
 
 ## Building and running demo
 
@@ -60,22 +98,6 @@ To debug project and make code modifications on the fly in the server-side, righ
 The most common way of debugging and making changes to the client-side code is dev-mode. To create debug configuration for it, open labelbutton-demo project properties and click "Create Development Mode Launch" button on the Vaadin tab. Right-click newly added "GWT development mode for labelbutton-demo.launch" and choose Debug As > Debug Configurations... Open up Classpath tab for the development mode configuration and choose User Entries. Click Advanced... and select Add Folders. Choose Java and Resources under labelbutton/src/main and click ok. Now you are ready to start debugging the client-side code by clicking debug. Click Launch Default Browser button in the GWT Development Mode in the launched application. Now you can modify and breakpoints to client-side classes and see changes by reloading the web page. 
 
 Another way of debugging client-side is superdev mode. To enable it, uncomment devModeRedirectEnabled line from the end of DemoWidgetSet.gwt.xml located under labelbutton-demo resources folder and compile the widgetset once by running vaadin:compile Maven target for labelbutton-demo. Refresh labelbutton-demo project resources by right clicking the project and choosing Refresh. Click "Create SuperDevMode Launch" button on the Vaadin tab of the labelbutton-demo project properties panel to create superder mode code server launch configuration and modify the class path as instructed above. After starting the code server by running SuperDevMode launch as Java application, you can navigate to http://localhost:8080/labelbutton-demo/?superdevmode. Now all code changes you do to your client side will get compiled as soon as you reload the web page. You can also access Java-sources and set breakpoints inside Chrome if you enable source maps from inspector settings. 
-
- 
-## Release notes
-
-### Version 0.1.2 (2015-07-13)
-- 0.1.1 did not resolve the OSGi issue correctly.
-
-### Version 0.1.1 (2015-07-13)
-- Mandatory mistake in OSGi bundle fixed
-
-### Version 0.1.0 (2015-07-10)
-- Initial release
-- Addon OSGi bundled
-- Pencil, underline and pointer optional style names included
-- Click event includes mouse details
-- LabelButton can toggle between clickable and unclickable states
 
 ## Roadmap
 
@@ -118,4 +140,4 @@ For a more comprehensive example, see labelbutton-demo/src/main/java/org/vaadin/
 
 ## API
 
-MyComponent JavaDoc is available online at TODO
+LabelButton JavaDoc is available online at TODO
