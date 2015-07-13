@@ -1,5 +1,7 @@
 # LabelButton Add-on for Vaadin 7
 
+[![Build Status](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/)
+
 LabelButton offers way to extends Vaadin's Label with button functionality.
 
 Add-on is originally designed to use case where you want to attach edit functionality to forms labels. This all where
@@ -11,15 +13,13 @@ Other use case would be to include navigation labels (in style of Links).
 If this add-on does not match with your requirements please check Link component from Vaadin core or ClickLabelExtension
 from Marko Radinovic (available in Vaadin Directory). 
 
-## Online demo
+## Online demo and screenshots
 
 Try the add-on demo at http://app.siika.fi/LabelButtonDemo
 
-## Build status
+![LabelButton screenhot 1](screenshot.png)
 
-[![Build Status](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/)
-
-## Usage Example
+## Usage example
 ```java
 LabelButton label = new LabelButton("Caption", "Show notification", event -> Notification.show("Clicked!"));
 
@@ -34,10 +34,6 @@ label.setClickable(false); // behaves like normal label
 // .. and
 label.setClickable(true); // enables all click features and styling
 ```
-
-## Screenshot
-
-![LabelButton screenhot 1](screenshot.png)
 
 ## Download release
 
