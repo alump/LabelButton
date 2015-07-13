@@ -5,7 +5,7 @@
 	<groupId>org.vaadin.alump.labelbutton</groupId>
 	<artifactId>labelbutton-addon</artifactId>
 	<packaging>bundle</packaging>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<name>LabelButton</name>
 
 	<properties>
@@ -175,10 +175,13 @@
 							org.vaadin.alump.labelbutton,
 							org.vaadin.alump.labelbutton.client.shared.*
 						</Export-Package>
-						<Import-Package>com.vaadin.data;version="[7.4,8)",com.vaa
-							din.shared;version="[7.4,8)",com.vaadin.shared.communication;version="[
-							7.4,8)",com.vaadin.shared.ui;version="[7.4,8)",com.vaadin.ui;version="[
-							7.4,8)"</Import-Package>
+						<Import-Package>com.vaadin.data;version="[7.4,8)",
+							com.vaadin.server;version="[7.4,8)",
+							com.vaadin.shared;version="[7.4,8)",
+							com.vaadin.shared.communication;version="[7.4,8)",
+							com.vaadin.shared.ui;version="[7.4,8)",
+							com.vaadin.shared.ui.label;version="[7.4,8)",
+							com.vaadin.ui;version="[7.4,8)"</Import-Package>
 					</instructions>
 				</configuration>
 				<executions>

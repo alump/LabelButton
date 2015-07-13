@@ -53,7 +53,7 @@ If you have not already compiled the widgetset, do it now by running vaadin:inst
 
 If you have a JRebel license, it makes on the fly code changes faster. Just add JRebel nature to your labelbutton-demo project by clicking project with right mouse button and choosing JRebel > Add JRebel Nature
 
-To debug project and make code modifications on the fly in the server-side, right-click the labelbutton-demo project and choose Debug As > Debug on Server. Navigate to http://localhost:8080/labelbutton-demo/ to see the application.
+To debug project and make code modifications on the fly in the server-side, right-click the labelbutton-demo project and choose Debug As > Debug on Server. Navigate to http://localhost:8080 to see the application.
 
 ### Debugging client-side
 
@@ -63,6 +63,9 @@ Another way of debugging client-side is superdev mode. To enable it, uncomment d
 
  
 ## Release notes
+
+### Version 0.1.2 (2015-07-13)
+- 0.1.1 did not resolve the OSGi issue correctly.
 
 ### Version 0.1.1 (2015-07-13)
 - Mandatory mistake in OSGi bundle fixed
