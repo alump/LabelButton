@@ -64,6 +64,9 @@ Another way of debugging client-side is superdev mode. To enable it, uncomment d
  
 ## Release notes
 
+### Version 0.1.1 (2015-07-13)
+- Mandatory mistake in OSGi bundle fixed
+
 ### Version 0.1.0 (2015-07-10)
 - Initial release
 - Addon OSGi bundled

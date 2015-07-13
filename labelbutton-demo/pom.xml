@@ -5,8 +5,8 @@
     <groupId>org.vaadin.alump.labelbutton</groupId>
     <artifactId>labelbutton-demo</artifactId>
     <packaging>war</packaging>
-    <version>0.1.0</version>
-    <name>MyComponent Add-on Demo</name>
+    <version>0.1.1</version>
+    <name>LabelButton Add-on Demo</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
