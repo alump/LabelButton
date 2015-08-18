@@ -128,6 +128,11 @@ public class LabelButton extends Label {
         return (LabelButtonState) super.getState();
     }
 
+    @Override
+    protected LabelButtonState getState(boolean markAsDirty) {
+        return (LabelButtonState) super.getState(markAsDirty);
+    }
+
     /**
      * Change clickable state of LabelButton
      * @param clickable true set clickable, false to unset clickable state
@@ -146,7 +151,7 @@ public class LabelButton extends Label {
      * @return true if clickable
      */
     public boolean isClickable() {
-        return getState().clickable;
+        return getState(false).clickable;
     }
 
     /**
@@ -168,11 +173,24 @@ public class LabelButton extends Label {
         clickListeners.remove(listener);
     }
 
+    protected void fireClick() {
+        fireClick(null);
+    }
+
     protected void fireClick(MouseEventDetails details) {
         LabelClickEvent event = new LabelClickEvent(LabelButton.this, details);
 
         for(LabelClickListener listener : clickListeners) {
             listener.onLabelClick(event);
+        }
+    }
+
+    /**
+     * Will cause LabelButton to emit click signals when clickable
+     */
+    public void click() {
+        if(this.isEnabled() && !this.isReadOnly() && this.isClickable()) {
+            this.fireClick();
         }
     }
 }

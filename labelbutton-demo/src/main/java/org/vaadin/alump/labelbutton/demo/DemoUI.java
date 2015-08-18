@@ -11,9 +11,11 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 import org.vaadin.alump.labelbutton.LabelButton;
 import org.vaadin.alump.labelbutton.LabelButtonStyles;
 import org.vaadin.alump.labelbutton.LabelClickEvent;
+import org.vaadin.alump.labelbutton.LabelWithButton;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -71,6 +73,18 @@ public class DemoUI extends UI
         );
         leftColumn.addComponent(label4);
         labelButtons.add(label4);
+
+        LabelWithButton label5 = new LabelWithButton("Example 5 (LabelWithButton)", "I'm just a label", "Click me!",
+                event -> { showClickDetails(event); });
+        leftColumn.addComponent(label5);
+        labelButtons.add(label5);
+
+        LabelWithButton label6 = new LabelWithButton("Example 6 (LabelWithButton reverse)", "<- Button", "Label ->",
+                event -> { showClickDetails(event); });
+        label6.setLabelFirst(false);
+        label6.addButtonStyleName(ValoTheme.BUTTON_SMALL);
+        leftColumn.addComponent(label6);
+        labelButtons.add(label6);
 
         // -- right column = options --
         VerticalLayout rightColumn = createColumn(topLayout);

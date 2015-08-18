@@ -42,7 +42,7 @@ Official releases of this add-on are available at Vaadin Directory. For Maven in
 ## Release notes
 
 ### Version 0.1.3 (TODO)
-- TODO
+- Adding LabelWithButton, which has a separate button next to label on client side
 
 ### Version 0.1.2 (2015-07-13)
 - 0.1.1 did not resolve the OSGi issue correctly.

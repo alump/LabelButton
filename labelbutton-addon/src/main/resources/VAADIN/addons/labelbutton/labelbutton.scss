@@ -7,7 +7,7 @@
 }
 
 @mixin labelbutton {
-  .labelbutton {
+  .v-label.labelbutton {
     $labelbutton-clickable-color: blue !default;
 
     @include label-button($labelbutton-clickable-color);
@@ -40,4 +40,20 @@
       }
     }
   }
+
+  .label-with-button {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    > .v-label {
+      display: inline-block;
+      width: auto;
+    }
+    > .v-button {
+      margin-left: 1em;
+      display: inline-block;
+      width: auto;
+    }
+  }
+
 }
