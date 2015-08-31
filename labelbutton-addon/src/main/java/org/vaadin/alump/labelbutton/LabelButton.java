@@ -128,6 +128,11 @@ public class LabelButton extends Label {
         return (LabelButtonState) super.getState();
     }
 
+    @Override
+    protected LabelButtonState getState(boolean markAsDirty) {
+        return (LabelButtonState) super.getState(markAsDirty);
+    }
+
     /**
      * Change clickable state of LabelButton
      * @param clickable true set clickable, false to unset clickable state
@@ -146,7 +151,7 @@ public class LabelButton extends Label {
      * @return true if clickable
      */
     public boolean isClickable() {
-        return getState().clickable;
+        return getState(false).clickable;
     }
 
     /**
@@ -174,5 +179,22 @@ public class LabelButton extends Label {
         for(LabelClickListener listener : clickListeners) {
             listener.onLabelClick(event);
         }
+    }
+
+    /**
+     * Check if tooltips are shown or not
+     * @return true to show tooltips (default), false if tooltips are not shown
+     */
+    public boolean getShowTooltips() {
+        return getState(false).showTooltips;
+    }
+
+    /**
+     * Define if tooltips should be shown. This feature is mainly to be used with ColumnLayout add-on's material
+     * design layout, where all content normally in tooltip is shown by part layout.
+     * @param showTooltips true to shown tooltips (normal), false to not show those
+     */
+    public void setShowTooltips(boolean showTooltips) {
+        getState().showTooltips = showTooltips;
     }
 }

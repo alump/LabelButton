@@ -4,7 +4,7 @@ import com.vaadin.shared.MouseEventDetails;
 import com.vaadin.shared.communication.ServerRpc;
 
 /**
- * Created by alump on 10/07/15.
+ * ServerRPC implemented by LabelButton
  */
 public interface LabelButtonServerRpc extends ServerRpc {
 

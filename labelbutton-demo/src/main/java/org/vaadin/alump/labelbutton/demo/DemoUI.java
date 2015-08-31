@@ -54,6 +54,8 @@ public class DemoUI extends UI
 
         LabelButton label3 = new LabelButton("Example 3 (underline and pointer styles)", "Show notification",
                 event -> Notification.show("Clicked!"));
+        label3.setShowTooltips(false);
+        label3.setDescription("This description should not be shown!");
         label3.addStyleName(LabelButtonStyles.HOVER_UNDERLINE_WHEN_CLICKABLE);
         label3.addStyleName(LabelButtonStyles.POINTER_WHEN_CLICKABLE);
         leftColumn.addComponent(label3);
@@ -111,9 +113,12 @@ public class DemoUI extends UI
         VerticalLayout layout = createWindowLayout(window);
 
         layout.addComponent(createDataLabel("Label value", event.getLabel().getValue()));
-        layout.addComponent(createDataLabel("Client coordinates", "X:" + event.getClientX() + ", Y:" + event.getClientY()));
-        layout.addComponent(createDataLabel("Relative coordinates", "X:" + event.getRelativeX() + ", Y:" + event.getRelativeY()));
-        layout.addComponent(createDataLabel("Modifiers", "ALT:" + event.isAltKey() + ", CTRL:" + event.isCtrlKey() + ", SHIFT:" + event.isShiftKey() + ", META:" + event.isMetaKey()));
+        layout.addComponent(createDataLabel("Client coordinates", "X:" + event.getClientX()
+                + ", Y:" + event.getClientY()));
+        layout.addComponent(createDataLabel("Relative coordinates", "X:" + event.getRelativeX()
+                + ", Y:" + event.getRelativeY()));
+        layout.addComponent(createDataLabel("Modifiers", "ALT:" + event.isAltKey() + ", CTRL:" + event.isCtrlKey()
+                + ", SHIFT:" + event.isShiftKey() + ", META:" + event.isMetaKey()));
 
         getUI().addWindow(window);
     }

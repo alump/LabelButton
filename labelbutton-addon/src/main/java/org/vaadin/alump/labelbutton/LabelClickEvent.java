@@ -10,6 +10,8 @@ public class LabelClickEvent {
     private final LabelButton label;
     private final MouseEventDetails details;
 
+    public static final int UNDEFINED_COORDINATE = -1;
+
     public LabelClickEvent(LabelButton label) {
         this(label, null);
     }
@@ -35,7 +37,7 @@ public class LabelClickEvent {
         if (null != details) {
             return details.getClientX();
         } else {
-            return -1;
+            return UNDEFINED_COORDINATE;
         }
     }
 
@@ -47,7 +49,7 @@ public class LabelClickEvent {
         if (null != details) {
             return details.getClientY();
         } else {
-            return -1;
+            return UNDEFINED_COORDINATE;
         }
     }
 
@@ -59,7 +61,7 @@ public class LabelClickEvent {
         if (null != details) {
             return details.getRelativeX();
         } else {
-            return -1;
+            return UNDEFINED_COORDINATE;
         }
     }
 
@@ -71,7 +73,7 @@ public class LabelClickEvent {
         if (null != details) {
             return details.getRelativeY();
         } else {
-            return -1;
+            return UNDEFINED_COORDINATE;
         }
     }
 

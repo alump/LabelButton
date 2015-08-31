@@ -1,7 +1,7 @@
 package org.vaadin.alump.labelbutton;
 
 /**
- * Created by alump on 10/07/15.
+ * Interface to implement if you want to listen clicks of LabelButton
  */
 public interface LabelClickListener {
 

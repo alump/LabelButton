@@ -1,10 +1,11 @@
 package org.vaadin.alump.labelbutton.client;
 
-import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.vaadin.client.MouseEventDetailsBuilder;
+import com.vaadin.client.TooltipInfo;
 import com.vaadin.client.communication.StateChangeEvent;
 import com.vaadin.client.ui.label.LabelConnector;
 import com.vaadin.shared.MouseEventDetails;
@@ -65,6 +66,24 @@ public class LabelButtonConnector extends LabelConnector {
     protected void detachClickHandler() {
         clickReg.removeHandler();
         clickReg = null;
+    }
+
+    @Override
+    public boolean hasTooltip() {
+        if(getState().showTooltips) {
+            return super.hasTooltip();
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public TooltipInfo getTooltipInfo(Element element) {
+        if(getState().showTooltips) {
+            return super.getTooltipInfo(element);
+        } else {
+            return new TooltipInfo();
+        }
     }
 
 }
