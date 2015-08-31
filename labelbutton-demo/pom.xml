@@ -5,7 +5,7 @@
     <groupId>org.vaadin.alump.labelbutton</groupId>
     <artifactId>labelbutton-demo</artifactId>
     <packaging>war</packaging>
-    <version>0.1.3</version>
+    <version>0.1.4-SNAPSHOT</version>
     <name>LabelButton Add-on Demo</name>
 
     <properties>
@@ -94,6 +94,7 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-client-compiler</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
