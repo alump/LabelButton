@@ -35,6 +35,17 @@ label.setClickable(false); // behaves like normal label
 label.setClickable(true); // enables all click features and styling
 ```
 
+## Usage example (extension, 0.2.0+)
+```java
+Label label = new Label("Normal label");
+
+// Extending label to get click events
+LabelButtonExtension extension = LabelButtonExtension.get(normalLabel);
+extension.addLabelClickListener(event -> Notification.show("Clicked!"));
+
+parentLayout.add(label);
+```
+
 ## Download release
 
 Official releases of this add-on are available at Vaadin Directory. For Maven instructions, download and reviews, go to http://vaadin.com/addon/labelbutton
