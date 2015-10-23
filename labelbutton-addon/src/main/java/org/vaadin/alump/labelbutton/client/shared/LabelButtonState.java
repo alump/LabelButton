@@ -7,7 +7,7 @@ import com.vaadin.shared.ui.label.LabelState;
  */
 public class LabelButtonState extends LabelState {
 
-    public boolean clickable = false;
+    public boolean clickable = true;
 
     public boolean showTooltips = true;
 }

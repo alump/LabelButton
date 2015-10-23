@@ -1,6 +1,7 @@
 .idea/
 target/
 *.iml
+labelbutton-demo/src/main/webapp/VAADIN/themes/demo/addons.scss
 labelbutton-demo/src/main/webapp/VAADIN/widgetsets
 *.scss.cache
 *.css

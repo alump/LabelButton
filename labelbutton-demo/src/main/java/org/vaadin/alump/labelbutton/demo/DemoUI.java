@@ -12,6 +12,7 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.*;
 import org.vaadin.alump.labelbutton.LabelButton;
+import org.vaadin.alump.labelbutton.LabelButtonExtension;
 import org.vaadin.alump.labelbutton.LabelButtonStyles;
 import org.vaadin.alump.labelbutton.LabelClickEvent;
 
@@ -25,6 +26,7 @@ public class DemoUI extends UI
 {
 
     private Set<LabelButton> labelButtons = new HashSet<LabelButton>();
+    private Set<LabelButtonExtension> labelButtonExtensions = new HashSet<LabelButtonExtension>();
 
     @WebServlet(value = "/*", asyncSupported = true)
     @VaadinServletConfiguration(productionMode = false, ui = DemoUI.class, widgetset = "org.vaadin.alump.labelbutton.DemoWidgetSet")
@@ -74,6 +76,14 @@ public class DemoUI extends UI
         leftColumn.addComponent(label4);
         labelButtons.add(label4);
 
+        Label normalLabel = new Label("I'm just a normal label");
+        normalLabel.addStyleName("normal-label");
+        normalLabel.setCaption("Normal labels can be also extended to get click events");
+        leftColumn.addComponent(normalLabel);
+        LabelButtonExtension extension = LabelButtonExtension.get(normalLabel);
+        extension.addLabelClickListener(event -> showClickDetails(event));
+        labelButtonExtensions.add(LabelButtonExtension.get(normalLabel));
+
         // -- right column = options --
         VerticalLayout rightColumn = createColumn(topLayout);
 
@@ -102,10 +112,12 @@ public class DemoUI extends UI
 
     private void setUnclickable(boolean unclickable) {
         labelButtons.forEach(lb -> lb.setClickable(!unclickable));
+        labelButtonExtensions.forEach(lb -> lb.setClickable(!unclickable));
     }
 
     private void setDisabled(boolean disabled) {
         labelButtons.forEach(lb -> lb.setEnabled(!disabled));
+        labelButtonExtensions.forEach(lb -> lb.getLabel().setEnabled(!disabled));
     }
 
     private void showClickDetails(final LabelClickEvent event) {
@@ -117,10 +129,31 @@ public class DemoUI extends UI
                 + ", Y:" + event.getClientY()));
         layout.addComponent(createDataLabel("Relative coordinates", "X:" + event.getRelativeX()
                 + ", Y:" + event.getRelativeY()));
-        layout.addComponent(createDataLabel("Modifiers", "ALT:" + event.isAltKey() + ", CTRL:" + event.isCtrlKey()
-                + ", SHIFT:" + event.isShiftKey() + ", META:" + event.isMetaKey()));
+        layout.addComponent(createDataLabel("Modifiers",
+                mod(event.isAltKey(), "alt") + " "
+                + mod(event.isCtrlKey(), "ctrl") + " "
+                + mod(event.isShiftKey(), "shift") + " "
+                + mod(event.isMetaKey(), "meta"),
+                true));
 
         getUI().addWindow(window);
+    }
+
+    private static String mod(boolean modifier, String name) {
+        StringBuilder sb = new StringBuilder();
+        if(modifier) {
+            sb.append("<b>");
+        }
+        sb.append(mod(modifier));
+        sb.append(name);
+        if(modifier) {
+            sb.append("</b>");
+        }
+        return sb.toString();
+    }
+
+    private static String mod(boolean modifier) {
+        return modifier ? "☑" : "☐";
     }
 
     private void modifyLabel(final LabelClickEvent event) {
@@ -165,7 +198,14 @@ public class DemoUI extends UI
     }
 
     private static Label createDataLabel(String caption, String value) {
+        return createDataLabel(caption, value, false);
+    }
+
+    private static Label createDataLabel(String caption, String value, boolean html) {
         Label label = new Label(value);
+        if(html) {
+            label.setContentMode(ContentMode.HTML);
+        }
         label.setCaption(caption);
         return label;
     }

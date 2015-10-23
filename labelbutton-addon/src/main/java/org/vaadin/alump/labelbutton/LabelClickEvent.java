@@ -1,32 +1,45 @@
 package org.vaadin.alump.labelbutton;
 
 import com.vaadin.shared.MouseEventDetails;
+import com.vaadin.ui.Label;
 
 /**
- * Created by alump on 10/07/15.
+ * Event fired when Label is clicked
  */
 public class LabelClickEvent {
 
-    private final LabelButton label;
+    private final Label label;
     private final MouseEventDetails details;
 
     public static final int UNDEFINED_COORDINATE = -1;
 
-    public LabelClickEvent(LabelButton label) {
+    public LabelClickEvent(Label label) {
         this(label, null);
     }
 
-    public LabelClickEvent(LabelButton label, MouseEventDetails details) {
+    public LabelClickEvent(Label label, MouseEventDetails details) {
         this.label = label;
         this.details = details;
     }
 
     /**
-     * Get clicked LabelButton
-     * @return LabelButton clicked
+     * Get clicked Label
+     * @return Label clicked
      */
-    public LabelButton getLabel() {
+    public Label getLabel() {
         return label;
+    }
+
+    /**
+     * Get clicked LabelButton (if clicked label was a LabelButton)
+     * @return LabelButton clicked, or null if clicked label wasn't a LabelButton
+     */
+    public LabelButton getLabelButton() {
+        if(label instanceof LabelButton) {
+            return (LabelButton)label;
+        } else {
+            return null;
+        }
     }
 
     /**

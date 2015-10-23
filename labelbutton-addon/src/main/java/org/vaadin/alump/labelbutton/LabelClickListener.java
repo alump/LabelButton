@@ -5,5 +5,9 @@ package org.vaadin.alump.labelbutton;
  */
 public interface LabelClickListener {
 
+    /**
+     * Called when label is clicked
+     * @param event Event information
+     */
     void onLabelClick(LabelClickEvent event);
 }

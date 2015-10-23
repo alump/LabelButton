@@ -1,7 +1,7 @@
 package org.vaadin.alump.labelbutton;
 
 /**
- * Style names to use styling tricks included to addon
+ * These style name apply to LabelButton, but do not apply to Labels extended with LabelButtonExtension.
  */
 public interface LabelButtonStyles {
 
@@ -25,4 +25,9 @@ public interface LabelButtonStyles {
      * Underlines label's text when clickable mode (also in hover mode).
      */
     String UNDERLINE_WHEN_CLICKABLE = "lb-underline";
+
+    /**
+     * This will prevent user from selecting the text, that can prevent some click events
+     */
+    String DISABLE_USER_SELECTION = "lb-preventselect";
 }
