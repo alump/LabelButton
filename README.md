@@ -10,8 +10,9 @@ popup window to open after label has been clicked.
 
 Other use case would be to include navigation labels (in style of Links).
 
-If this add-on does not match with your requirements please check Link component from Vaadin core or ClickLabelExtension
-from Marko Radinovic (available in Vaadin Directory). 
+Add-on now also includes extension that can be attached to any class inheriting Vaadin Label. This is useful if you
+have already extended Label, or do not care about LabelButton styling features. When extension is used add-on do not
+provide any styling out of the box.
 
 ## Online demo and screenshots
 
@@ -40,7 +41,7 @@ label.setClickable(true); // enables all click features and styling
 Label label = new Label("Normal label");
 
 // Extending label to get click events
-LabelButtonExtension extension = LabelButtonExtension.get(normalLabel);
+LabelButtonExtension extension = LabelButtonExtension.get(label);
 extension.addLabelClickListener(event -> Notification.show("Clicked!"));
 
 parentLayout.add(label);
@@ -118,7 +119,7 @@ High priority features:
 - Preventing click event if user is painting the text (issue #1)
 
 Lower priority features:
-- Offer change to use there features via Extension pattern if possible
+- TBD
 
 ## Issue tracking
 
