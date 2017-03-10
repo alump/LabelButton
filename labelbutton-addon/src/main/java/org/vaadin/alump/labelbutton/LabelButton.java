@@ -1,8 +1,7 @@
 package org.vaadin.alump.labelbutton;
 
-import com.vaadin.data.Property;
 import com.vaadin.shared.MouseEventDetails;
-import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Label;
 import org.vaadin.alump.labelbutton.client.shared.LabelButtonServerRpc;
 import org.vaadin.alump.labelbutton.client.shared.LabelButtonState;
@@ -97,28 +96,9 @@ public class LabelButton extends Label {
     /**
      * @see com.vaadin.ui.Button
      */
-    public LabelButton(Property contentSource) {
-        this();
-        setPropertyDataSource(contentSource);
-        setContentMode(ContentMode.TEXT);
-    }
-
-    /**
-     * @see com.vaadin.ui.Button
-     */
     public LabelButton(String content, ContentMode contentMode) {
         this();
         setValue(content);
-        setContentMode(contentMode);
-        setWidth(100, Unit.PERCENTAGE);
-    }
-
-    /**
-     * @see com.vaadin.ui.Button
-     */
-    public LabelButton(Property contentSource, ContentMode contentMode) {
-        this();
-        setPropertyDataSource(contentSource);
         setContentMode(contentMode);
         setWidth(100, Unit.PERCENTAGE);
     }

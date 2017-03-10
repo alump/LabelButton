@@ -4,10 +4,10 @@
 // Prefix all selectors in your theme with .demo
 .demo {
 
-	// Include valo theme styles in your theme
-	@include valo;
+  // Include valo theme styles in your theme
+  @include valo;
 
-  	@include addons;
+  @include addons;
 
   .normal-label {
 	-moz-user-select: none;

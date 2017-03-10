@@ -9,7 +9,7 @@ import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
-import com.vaadin.shared.ui.label.ContentMode;
+import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
 import org.vaadin.alump.labelbutton.LabelButton;
 import org.vaadin.alump.labelbutton.LabelButtonExtension;
@@ -88,11 +88,11 @@ public class DemoUI extends UI
         VerticalLayout rightColumn = createColumn(topLayout);
 
         CheckBox clickableCBox = new CheckBox("Make labels unclickable");
-        clickableCBox.addValueChangeListener(event -> setUnclickable((Boolean) event.getProperty().getValue()));
+        clickableCBox.addValueChangeListener(event -> setUnclickable(event.getValue()));
         rightColumn.addComponent(clickableCBox);
 
         CheckBox disableCBox = new CheckBox("Disable labels");
-        disableCBox.addValueChangeListener(event -> setDisabled((Boolean) event.getProperty().getValue()));
+        disableCBox.addValueChangeListener(event -> setDisabled(event.getValue()));
         rightColumn.addComponent(disableCBox);
 
         Link githubLink = new Link("Project's GitHub page (source code, issue tracking, ...)",

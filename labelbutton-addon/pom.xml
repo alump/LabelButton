@@ -10,7 +10,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<vaadin.version>7.5.8</vaadin.version>
+		<vaadin.version>8.0.2</vaadin.version>
 		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 
 		<!-- ZIP Manifest fields -->
@@ -153,13 +153,13 @@
 							org.vaadin.alump.labelbutton,
 							org.vaadin.alump.labelbutton.client.shared.*
 						</Export-Package>
-						<Import-Package>com.vaadin.data;version="[7.4,8)",
-							com.vaadin.server;version="[7.4,8)",
-							com.vaadin.shared;version="[7.4,8)",
-							com.vaadin.shared.communication;version="[7.4,8)",
-							com.vaadin.shared.ui;version="[7.4,8)",
-							com.vaadin.shared.ui.label;version="[7.4,8)",
-							com.vaadin.ui;version="[7.4,8)"</Import-Package>
+						<Import-Package>com.vaadin.data;version="[8.0,9)",
+							com.vaadin.server;version="[8.0,9)",
+							com.vaadin.shared;version="[8.0,9)",
+							com.vaadin.shared.communication;version="[8.0,9)",
+							com.vaadin.shared.ui;version="[8.0,9)",
+							com.vaadin.shared.ui.label;version="[8.0,9)",
+							com.vaadin.ui;version="[8.0,9)"</Import-Package>
 					</instructions>
 					<archive>
 						<index>true</index>
