@@ -25,10 +25,9 @@
 
       &.lb-pencil {
         &:after {
-          content: "\f040";
-          font-family: "FontAwesome";
-          padding-left: 0.3em;
-          font-size: 80%;
+          content: "\e7fa";
+          font-family: "Vaadin-Icons";
+          padding-left: 0.5em;
         }
       }
 

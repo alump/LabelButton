@@ -11,6 +11,7 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.*;
+import com.vaadin.ui.themes.ValoTheme;
 import org.vaadin.alump.labelbutton.LabelButton;
 import org.vaadin.alump.labelbutton.LabelButtonExtension;
 import org.vaadin.alump.labelbutton.LabelButtonStyles;
@@ -76,7 +77,7 @@ public class DemoUI extends UI
         leftColumn.addComponent(label4);
         labelButtons.add(label4);
 
-        Label normalLabel = new Label("I'm just a normal label");
+        Label normalLabel = new Label("I'm just a normal label, but extended!");
         normalLabel.addStyleName("normal-label");
         normalLabel.setCaption("Normal labels can be also extended to get click events");
         leftColumn.addComponent(normalLabel);
@@ -161,9 +162,11 @@ public class DemoUI extends UI
         VerticalLayout layout = createWindowLayout(window);
 
         Label info = new Label("Note: Normally you would use this in case of more complex edit functionality.");
+        info.addStyleName(ValoTheme.LABEL_SMALL);
+        info.setWidth(100, Unit.PERCENTAGE);
         layout.addComponent(info);
 
-        final TextField textField = new TextField("Label content");
+        final TextField textField = new TextField("Label value");
         textField.setWidth(100, Unit.PERCENTAGE);
         textField.setValue(event.getLabel().getValue());
         layout.addComponent(textField);

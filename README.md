@@ -53,11 +53,12 @@ Official releases of this add-on are available at Vaadin Directory. For Maven in
 
 ## Release notes
 
-### Version 0.2.0 (TBD)
+### Version 0.2.0 (2017-03-14)
 - Now clickable is true by default
 - Extension version that can be used with all Labels. Does not include styling of LabelButton
 - Change to LabelClickEvent to allow it to be used also with extension version
 - Vaadin 8 support
+- Replace FontAwesomes with VaadinIcons
 
 ### Version 0.1.3 (2015-07-31)
 - Adds mode where LabelButton will not show tooltips. This is for users of ColumnLayout add-on's material design mode. Where parent layout shows the errors and descriptions of children.
