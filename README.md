@@ -1,4 +1,4 @@
-# LabelButton Add-on for Vaadin 7
+# LabelButton Add-on for Vaadin
 
 [![Build Status](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/)
 
