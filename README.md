@@ -1,6 +1,6 @@
 # LabelButton Add-on for Vaadin
 
-[![Build Status](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](http://siika.fi:8888/jenkins/job/LabelButton%20(Vaadin)/)
+[![Build Status](https://epic.siika.fi/jenkins/job/LabelButton%20(Vaadin)/badge/icon)](https://epic.siika.fi/jenkins/job/LabelButton%20(Vaadin)/)
 
 LabelButton offers way to extends Vaadin's Label with button functionality.
 
